@@ -1,22 +1,31 @@
 import java.util.Scanner;
 
-public class Student {
-    private String username;
-    private String ID;
+public class Student extends UserClass {
+    Student(String name,String id){
+        super(name, id);
+    }
 
-    void login(){
-        Scanner input2 = new Scanner(System.in);
+    @Override
+    void Login() {
+        Scanner input = new Scanner(System.in);
         System.out.print("Masukkan Nama : ");
-        username = input2.nextLine();
+        setName(input.nextLine());
 
         System.out.print("Masukkan NIM : ");
-        ID = input2.nextLine();
+        setId(input.nextLine());
 
-        if(username.equals("Farrel Anizar Razzani") && ID.equals("202410370110165")){
-            System.out.println("Login Mahasiswa Berhasil!");
+        if(getName().equals("Farrel Anizar Razzani") && getId().equals("202410370110165")){
+            System.out.println("\nLogin Mahasiswa Berhasil!");
+            DisplayInfo();
         }
         else{
             System.out.println("Login gagal! Nama atau NIM salah");
         }
+    }
+
+    @Override
+    void DisplayInfo() {
+        super.DisplayInfo();
+        System.out.println("Account type : Student");
     }
 }

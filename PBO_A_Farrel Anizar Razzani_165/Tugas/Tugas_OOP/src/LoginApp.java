@@ -12,15 +12,14 @@ public class LoginApp {
         input.nextLine();
 
         if(pilihan == 1){
-            Admin adminLogin = new Admin();
+            Admin adminLogin = new Admin("Farrel Anizar Razzani","202410370110165","Admin165","Password165");
             adminLogin.Login();
-        }
-        else if(pilihan == 2){
-            Student studentLogin = new Student();
-            studentLogin.login();
+        } else if (pilihan == 2) {
+            Student studentLogin = new Student("Farrel Anizar Razzani","202410370110165");
+            studentLogin.Login();
         }
         else{
-            System.out.println("Pilihan Invalid!");
+            System.out.println("Pilihan invalid!");
         }
     }
 }
