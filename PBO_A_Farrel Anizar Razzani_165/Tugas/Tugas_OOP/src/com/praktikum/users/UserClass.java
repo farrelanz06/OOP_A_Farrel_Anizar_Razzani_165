@@ -1,6 +1,6 @@
-import java.util.Scanner;
+package com.praktikum.users;
 
-class UserClass {
+abstract public class UserClass {
     private String name;
     private String id;
 
@@ -25,11 +25,11 @@ class UserClass {
         this.id = id;
     }
 
-    void Login(){
+    abstract public void Login();
 
-    }
+    abstract public void DisplayAppMenu();
 
-    void DisplayInfo(){
+    public void DisplayInfo(){
         System.out.println("\nUser Information : ");
         System.out.println("Nama : " + name);
         System.out.println("NIM : " + id);
