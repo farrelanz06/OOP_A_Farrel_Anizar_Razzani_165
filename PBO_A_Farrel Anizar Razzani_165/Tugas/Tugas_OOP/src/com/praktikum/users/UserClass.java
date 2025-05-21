@@ -1,5 +1,9 @@
 package com.praktikum.users;
 
+import com.praktikum.data.Item;
+
+import java.util.ArrayList;
+
 abstract public class UserClass {
     private String name;
     private String id;
