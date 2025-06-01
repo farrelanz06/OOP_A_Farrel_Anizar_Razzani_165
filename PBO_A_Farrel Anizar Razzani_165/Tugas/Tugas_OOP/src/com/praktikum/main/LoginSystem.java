@@ -4,6 +4,8 @@ import com.praktikum.data.Item;
 import com.praktikum.users.Admin;
 import com.praktikum.users.Student;
 import com.praktikum.users.UserClass;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -11,7 +13,7 @@ import java.util.Scanner;
 
 public class LoginSystem {
     public static ArrayList<UserClass> userlist = new ArrayList<>();
-    public static ArrayList<Item> reportedItems = new ArrayList<>();
+    public static ObservableList<Item> reportedItems = FXCollections.observableArrayList();
 
     public void objectUser() {
         userlist.add(new Admin("Farrel Anizar Razzani", "202410370110165", "Admin165", "Password165"));
@@ -35,6 +37,22 @@ public class LoginSystem {
             } else if (user instanceof Student) {
                 Student student = (Student) user;
                 if (student.getName().equals(Inputusername) && student.getId().equals(Inputpassword)) {
+                    return student;
+                }
+            }
+        }
+        return null;
+    }
+    public static UserClass login(String username, String password, String userType) {
+        for (UserClass user : userlist) {
+            if ("Admin".equals(userType) && user instanceof Admin) {
+                Admin admin = (Admin) user;
+                if (admin.getUsername().equals(username) && admin.getPassword().equals(password)) {
+                    return admin;
+                }
+            } else if ("Mahasiswa".equals(userType) && user instanceof Student) {
+                Student student = (Student) user;
+                if (student.getName().equals(username) && student.getId().equals(password)) {
                     return student;
                 }
             }
